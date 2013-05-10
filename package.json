@@ -1,0 +1,16 @@
+{
+  "name": "node-rsyncer",
+  "version": "0.0.1",
+  "description": "Continuous rsync runner.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zivester/node-rsyncer.git"
+  },
+  "author": "Zach Ivester <zivester@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "watchr": "~2.4.3"
+  }
+}
