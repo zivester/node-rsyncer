@@ -1,6 +1,6 @@
 {
-  "name": "node-rsyncer",
-  "version": "0.0.1",
+  "name": "rsyncer",
+  "version": "0.0.2",
   "description": "Continuous rsync runner.",
   "main": "index.js",
   "repository": {

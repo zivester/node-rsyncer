@@ -1,6 +1,17 @@
 {
-    "src" : "/home/zivester/code/",
-    "dst" : "zivester@remote:/tmp/code/",
+    "paths" : [
+        {
+            "src" : "/home/zivester/code/",
+            "dst" : "zivester@remote:/home/zivester/code/"
+        },
+        {
+            "src" : "/home/zivester/music/",
+            "dst" : "/tmp/music/",
+            "args" : [
+                "-rt"
+            ]
+        }
+    ],
     "args" : [
         "-l",
         "-C",
