@@ -1,6 +1,52 @@
-# rsyncer
+node-rsyncer
+====
+
+<img src="http://1.bp.blogspot.com/-ff99d8Ohm84/TfPUIEA_KyI/AAAAAAAAABE/iW6k1SYSuiQ/s380/cartoon4.jpg">
+
+# node-rsyncer
+
+## what?
 
 A continuous `rsync` runner to keep local and remote directories in sync.  It watches the source directory tree for any changes, and immediately invokes the specified rsync command.
+
+## install
+
+*npm*
+
+```sh
+$ [sudo] npm install rsyncer -g
+```
+
+## usage
+
+## api
+
+## contributors
+
+* [zivester](https://github.com/zivester)
+* [werle](https://github.com/jwerle)
+
+## development
+
+You must ensure you can ssh to `localhost` and that you're machines identity is in your `~/.ssh/authorized_keys` file
+
+To add it simply do:
+
+```sh
+$ touch ~/.ssh/authorized_keys;  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+***ONLY DO THIS ONCE***
+
+## todo
+
+* cli
+* tests
+* documentation
+
+## license
+
+MIT
 
 ## Config
 

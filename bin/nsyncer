@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+var program = require('commander')
+	,	rsyncer = require('../')
+	, path = require('path')
+	,	pkg = require('../package')
+
+program.version(pkg.version)
+
+program.command('start').description("Starts the rsyncer").action(function (configFile) {
+	try {
+		var config = require(configFile)
+	}
+	catch (e) {
+		try {
+			var config = require(path.resolve(process.cwd(), configFile))
+		}
+		catch (e) {
+			console.log("Couldn't determine configurate file");
+			process.exit(1);
+		}
+	}
+	var syncer = rsyncer(config)
+	syncer.on('change', function () {
+		console.log('change', arguments)
+	});
+
+	syncer.on('sync', function () {
+		console.log("syncd!")
+	})
+});
+
+program.parse(process.argv)
