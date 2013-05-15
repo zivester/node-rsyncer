@@ -8,7 +8,8 @@ clean:
 	@rm -rf node_modules
 
 test:
-	@rm -f ./tmp/dst/*
+	@rm -rf ./tmp/dst
+	@mkdir ./tmp/dst
 	@./node_modules/mocha/bin/mocha -R spec
 
 .PHONY: all install clean test
