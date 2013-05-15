@@ -38,12 +38,15 @@ program.command('start').description("Starts the rsyncer").action(function (conf
   });
 
   syncer.on('watching', function (watcher, status) {
-    log('watch:', watcher.path, '(watch:'+ status +')');
+    log('watch:', watcher.path, '(watching:'+ status +')');
   });
 
-  syncer.on('change', function (file) {
-    if (program.verbose || program.debug)
-      log('change:', file);
+  syncer.on('change', function (type, file, stat, previous) {
+    log('change:', type +':', '('+ file +')');
+    if (program.verbose || program.debug) {
+      log('current:', stat);
+      log('previous:', previous);
+    }
   });
 
   syncer.on('error', function (err) {
@@ -52,7 +55,7 @@ program.command('start').description("Starts the rsyncer").action(function (conf
   });
 
   syncer.on('sync', function () {
-    log('sync');
+    log('sync complete');
   })
 });
 

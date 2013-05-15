@@ -22,8 +22,8 @@ describe('node-rsyncer', function () {
 			var dstData = fs.readFileSync('./tmp/dst/test.data')
 				,	srcData = fs.readFileSync('./tmp/src/test.data')
 
-				assert.ok(dstData.toString() === srcData.toString());
-				done();
+			assert.ok(dstData.toString() === srcData.toString());
+			done();
 		});
 	});
 });
