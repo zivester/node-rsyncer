@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "description": "Continuous rsync runner.",
   "main": "index.js",
+  "preferGlobal": true,
+  "scripts" : {
+    "test" : "make test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zivester/node-rsyncer.git"
