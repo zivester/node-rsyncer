@@ -34,7 +34,7 @@ program.command('start').description("Starts the rsyncer").action(function (conf
   var syncer = rsyncer(config)
   syncer.on('message', function (level, message) {
     if (level !== 'debug') log(level +':', message);
-    if (program.debug) debug(message);
+    else if (program.debug) debug(message);
   });
 
   syncer.on('watching', function (watcher, status) {
