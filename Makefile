@@ -4,6 +4,7 @@ install:
 	@npm install
 
 clean:
+	@rm -f ./tmp/dst/*
 	@rm -rf node_modules
 
 test:
