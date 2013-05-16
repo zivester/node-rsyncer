@@ -93,7 +93,7 @@ Accepts a configuration object
 * `watch` - A boolean indicating whether to watch the `src` paths for changes and sync to the `dst` paths. (Default: `false`)
 * `recursive` - A boolean whether to recursively sync paths. (Default: `true`)
 * `delete` - A boolean whether delete extraneous files from destination dirs. (Default `true`)
-* `csvExclude` - A boolean whether auto-ignore files the same way CVS does. (Default: `true`)
+* `cvsExclude` - A boolean whether auto-ignore files the same way CVS does. (Default: `true`)
 * `links` - A boolean whether copy symlinks as symlinks (Default: `true`)
 * `paths` - An array of objects, each with the following properties:
 * `src` - The source file or directory to watch.
