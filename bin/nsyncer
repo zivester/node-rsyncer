@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+var program = require('commander')
+  , rsyncer = require('../')
+  , path = require('path')
+  , pkg = require('../package')
+
+var log = console.log.bind(console, 'nsyncer:')
+  , debug = log.bind(null, 'debug:')
+  , error = log.bind(null, 'error:')
+
+program.version(pkg.version)
+  .option('-W, --watch',    "Watch files and sync")
+  .option('-v, --verbose',  "Show verbose output")
+  .option('-D, --debug',    "Show debug output")
+
+program.command('start').description("Starts the rsyncer").action(function (configFile) {
+  try {
+    var config = require(configFile)
+  }
+  catch (e) {
+    try {
+      var config = require(path.resolve(process.cwd(), configFile))
+    }
+    catch (e) {
+      if (program.debug) debug(e.name, e.message);
+      error("Couldn't determine configurate file");
+      process.exit(1);
+    }
+  }
+
+  if (program.watch || config.watch === true) config.watch = true
+  else config.watch = false
+
+  var syncer = rsyncer(config)
+  syncer.on('message', function (level, message) {
+    if (level !== 'debug') log(level +':', message);
+    else if (program.debug) debug(message);
+  });
+
+  syncer.on('watching', function (watcher, status) {
+    log('watch:', watcher.path, '(watching:'+ status +')');
+  });
+
+  syncer.on('change', function (type, file, stat, previous) {
+    log('change:', type +':', '('+ file +')');
+    if (program.verbose || program.debug) {
+      log('current:', stat);
+      log('previous:', previous);
+    }
+  });
+
+  syncer.on('error', function (err) {
+    error(err);
+    if (!program.debug) throw err;
+  });
+
+  syncer.on('sync', function () {
+    log('sync complete');
+  })
+});
+
+program.parse(process.argv)
