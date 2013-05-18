@@ -1,6 +1,6 @@
 {
   "name": "rsyncer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Continuous rsync runner.",
   "main": "index.js",
   "preferGlobal": true,

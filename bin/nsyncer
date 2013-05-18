@@ -9,7 +9,7 @@ var log = console.log.bind(console, 'nsyncer:')
   , error = log.bind(null, 'error:')
 
 program.version(pkg.version)
-  .option('-W, --watch',    "Watch files and sync")
+  .option('-s, --single',   "Run rsync once, and exit")
   .option('-v, --verbose',  "Show verbose output")
   .option('-D, --debug',    "Show debug output")
 
@@ -28,8 +28,7 @@ program.command('start').description("Starts the rsyncer").action(function (conf
     }
   }
 
-  if (program.watch || config.watch === true) config.watch = true
-  else config.watch = false
+  config.once = !!program.single;
 
   var syncer = rsyncer(config)
   syncer.on('message', function (level, message) {
