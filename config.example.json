@@ -2,8 +2,7 @@
     "paths" : [
         {
             "src" : "/home/zivester/code/",
-            "dst" : "zivester@remote:/home/zivester/code/",
-            "recursive" : true
+            "dst" : "zivester@remote:/home/zivester/code/"
         },
         {
             "src" : "/home/zivester/music/",
@@ -13,7 +12,8 @@
             ]
         }
     ],
+    "recursive" : true,
     "args" : [
-        "--rsh='ssh'"
+       "--rsh='ssh'"
     ]
 }
