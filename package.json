@@ -1,6 +1,6 @@
 {
   "name": "rsyncer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Continuous rsync runner.",
   "main": "index.js",
   "preferGlobal": true,
@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "mocha": "~1.9.0"
+  },
+  "bin": {
+    "nsyncer": "./bin/nsyncer"
   }
 }

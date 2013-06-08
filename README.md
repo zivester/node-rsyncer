@@ -5,12 +5,12 @@ A continuous `rsync` runner to keep local and remote directories in sync.  It wa
 ## install
 
 ```sh
-$ npm install rsyncer -g
+$ npm install -g rsyncer
 ```
 
 ## usage
 
-`rsyncer` comes with an executable `nsysncer(1)` that you will use to sync and/or watch your directories/files
+`rsyncer` comes with an executable `nsyncer(1)` that you will use to sync and/or watch your directories/files
 
 ```sh
 $ nsyncer start ./config.json
@@ -28,6 +28,7 @@ commands:
 flags:
 
 * `-s, --single` - Run rsync once, and exit
+* `-e, --errexit` - Abort script on rsync error
 
 *example*
 

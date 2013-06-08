@@ -10,6 +10,7 @@ var log = console.log.bind(console, 'nsyncer:')
 
 program.version(pkg.version)
   .option('-s, --single',   "Run rsync once, and exit")
+  .option('-e, --errexit',  "Abort script on rsync error")
   .option('-v, --verbose',  "Show verbose output")
   .option('-D, --debug',    "Show debug output")
 
@@ -50,7 +51,7 @@ program.command('start').description("Starts the rsyncer").action(function (conf
 
   syncer.on('error', function (err) {
     error(err);
-    if (!program.debug) throw err;
+    if (program.errexit) throw err;
   });
 
   syncer.on('sync', function () {
