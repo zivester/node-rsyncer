@@ -13,6 +13,7 @@ program.version(pkg.version)
   .option('-e, --errexit',  "Abort script on rsync error")
   .option('-v, --verbose',  "Show verbose output")
   .option('-D, --debug',    "Show debug output")
+  .option('-t, --test',     "Print the rsync command(s) and exit")
 
 program.command('start').description("Starts the rsyncer").action(function (configFile) {
   try {
@@ -30,6 +31,7 @@ program.command('start').description("Starts the rsyncer").action(function (conf
   }
 
   config.once = !!program.single;
+  config.test = typeof program.test !== 'undefined' ? !!program.test : config.test;
 
   var syncer = rsyncer(config)
   syncer.on('message', function (level, message) {

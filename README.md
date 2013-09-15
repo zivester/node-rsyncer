@@ -29,6 +29,7 @@ flags:
 
 * `-s, --single` - Run rsync once, and exit
 * `-e, --errexit` - Abort script on rsync error
+* `-t, --test' - Print the rsync command(s) and exit
 
 *example*
 
@@ -49,12 +50,13 @@ Accepts a configuration object
   * `dst` - The destination file or directory to write to.
 * `args` - (optional) An array of string arguments, that will be passed directly to `rsync`.  These will be the **default** set of args passed to **all** paths that do not have `args` defined.  If `args` is defined on both the path, and the top level, **only** the path's `args` will be used.
 
-* `once` - A boolean indicating whether to run the rsync command only once. (Default: `false`)
 * `recursive` - A boolean whether to recursively sync paths. (Default: `false`)
 * `delete` - A boolean whether delete extraneous files from destination dirs. (Default `false`)
 * `cvsExclude` - A boolean whether auto-ignore files the same way CVS does. (Default: `false`)
 * `links` - A boolean whether copy symlinks as symlinks (Default: `false`)
 
+* `once` - A boolean indicating whether to run the rsync command only once. (Default: `false`)
+* `test` - Print the rsync command(s) that would be executed and exit. (Default: `false`)
 
 An example configuration file: [config.example.json](https://github.com/zivester/node-rsyncer/blob/master/config.example.json)
 
