@@ -10,6 +10,11 @@
             "args" : [
                 "-t"
             ]
+        },
+        {
+            "src" : "/tmp/will-not-be-synced",
+            "dst" : "/tmp/because-of-disabled-flag",
+            "disabled" : true
         }
     ],
     "recursive" : true,

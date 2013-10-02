@@ -29,7 +29,7 @@ flags:
 
 * `-s, --single` - Run rsync once, and exit
 * `-e, --errexit` - Abort script on rsync error
-* `-t, --test' - Print the rsync command(s) and exit
+* `-t, --test` - Print the rsync command(s) and exit
 
 *example*
 
@@ -48,6 +48,7 @@ Accepts a configuration object
 * `paths` - An array of objects, each with the following properties:
   * `src` - The source file or directory to watch.
   * `dst` - The destination file or directory to write to.
+  * `disabled` - (optional) A boolean to indicate if this job should be ignored (Default `false`).
 * `args` - (optional) An array of string arguments, that will be passed directly to `rsync`.  These will be the **default** set of args passed to **all** paths that do not have `args` defined.  If `args` is defined on both the path, and the top level, **only** the path's `args` will be used.
 
 * `recursive` - A boolean whether to recursively sync paths. (Default: `false`)
